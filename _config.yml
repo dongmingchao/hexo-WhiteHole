@@ -90,8 +90,8 @@ theme: material
 deploy:
   type: sftp
   host: dedsec.club
-  user: ftp
-  pass: cxz,./123
+  user: 
+  pass: 
   remotePath: /home/ftp/hexo
   port:
   ignore: [.DS_Store]
