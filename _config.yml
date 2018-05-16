@@ -79,8 +79,8 @@ theme: material
 #deploy:
 # type: sftpsync
 # host: dedsec.club
-# user: ftpuser
-# pass: cxz,./123
+# user:
+# pass:
 # remote: /var/www/html/hexo
 # port:
 # ignore: [.DS_Store]
