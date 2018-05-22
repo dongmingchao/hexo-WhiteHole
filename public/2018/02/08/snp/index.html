@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            项目-SNP-用Java打造自己的后端 | 
+        
+        White Hole
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+    
+        <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="DedSec">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",教程,项目">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="http://dedsec.club/forhexo/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="http://dedsec.club/forhexo/img/favicon.png">
+    <link rel="apple-touch-icon" href="http://dedsec.club/forhexo/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="White Hole">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="项目-SNP-用Java打造自己的后端 | White Hole">
+    <meta property="og:image" content="http://dedsec.club/forhexo/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="教程"> <meta property="og:article:tag" content="项目"> 
+
+    
+        <meta property="article:published_time" content="2月 08, 2018" />
+        <meta property="article:modified_time" content="5月 16, 2018" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="项目-SNP-用Java打造自己的后端 | White Hole">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://dedsec.club/forhexo/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/02/08/snp/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "White Hole",
+        "logo": "http://dedsec.club/forhexo/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "DedSec",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://dedsec.club/forhexo/img/favicon.png"
+        },
+        "description": "The Winter is Comming"
+    },
+    "headline": "项目-SNP-用Java打造自己的后端",
+    "url": "http://yoursite.com/2018/02/08/snp/index.html",
+    "datePublished": "2月 08, 2018",
+    "dateModified": "5月 16, 2018",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    
+    
+    
+    
+    
+    
+    .footer-sns-github {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNCA3OGMtNi40IDEuNC0yNi40IDE0LjItMzYgMjIuOC04IDcuMi0yMiAyOS44LTI0LjQgMzkuMi0xLjYgNi40LTIgMTEzLjItMS42IDM2OCAuNiAyOTkuNCAxIDM1OS44IDMuNCAzNjQgMTEgMjAuMiAyMS42IDMyLjQgMzcuMiA0MyAxNS42IDEwLjYgMTcuMiAxMS4yIDM0LjIgMTMuMiAxMC42IDEuMiA2My40IDEuNiAxMjcuNiAxLjRsMTA5LjYtLjYgNi02LjggNi4yLTYuOC0xLjItMjUuMmMtLjgtMTUuOC0uMi0zMy40IDEuNC00Ny4yIDMtMjUuNCAxLjQtMzYuMi02LTQzLjItNS00LjYtNi4yLTQuOC0zMC42LTQuMi0yNy42LjgtMjQgMS42LTY4LjgtMTYtOC42LTMuNC0yMi42LTE4LTI4LjQtMjkuOC0xMS40LTIyLjgtMjctNDUtMzkuMi01NS42LTE0LTEyLjItMTkuOC0yMC44LTE5LjgtMjguNiAwLTExLjYgMTMuNi0xMi42IDMzLjItMi40IDE2LjYgOC44IDIwLjggMTIuNCA0MC44IDM2LjIgMjQuMiAyOC42IDMxIDMzLjYgNTQgMzkuNiAxNS4yIDQgNDIuMiAzIDUxLjQtMS44IDktNC42IDE4LTE1LjIgMjQuNC0yOS4yIDExLjQtMjQuMiA3LjQtMzEuMi0yMC42LTM2LjgtOS44LTItMjkuMi04LTQzLjQtMTMuNC00MC40LTE1LjgtNjQuNi0zNy40LTg1LjQtNzYuMi0xMS42LTIxLjgtMTUuNC0zMy0xOC4yLTUzLjYtNC4yLTMyLjItNC44LTYwLjItMS40LTg0IDMuNC0yMy44IDYuOC0zMi44IDIwLjItNTQgNC02IDguOC0xNS42IDExLTIxLjQgMy44LTEwIDMuOC0xMS42IDEtMzAtNS4yLTM0LjItMy4yLTUyLjQgNy42LTcwLjIgNy4yLTEyLjIgMTUtMTcuMiAyNC4yLTE1LjggMTIuOCAyLjIgNTIgMTcuNCA2Ni44IDI2LjIgMjYgMTUgMjkgMTUuNCA4Mi40IDcuMiAyNC42LTMuOCAzMy44LTQuMiA2MC0zLjIgMTcgLjYgNDEuNCAzIDU0IDUuMiAzOC40IDYuNiA0OS42IDUuMiA3My0xMCA2LjYtNC4yIDE3LjQtOS40IDI0LTExLjYgNi42LTIuMiAxNi01LjggMjEtOC4yIDEzLTYgMjgtNS42IDM1LjYuOCAxMi40IDEwLjQgMTguNiA0MS40IDE0LjQgNzEuNi00LjQgMzAuNi0zIDM5LjQgOC40IDUzLjggMy40IDQuNCAxMS4yIDE5LjIgMTcuNCAzMy4yTDc3NSA0NDN2NzhsLTEwIDI4Yy0xNS4yIDQzLjItMzYuOCA3My4yLTY2LjIgOTIuOC0xMy40IDguOC01NyAyNS40LTc2LjggMjktMjguMiA1LjItMzMuMiAxMi42LTIyIDMyLjIgMTEuMiAxOS40IDEyLjQgMzIuOCAxMS42IDEyOS42bC0uNiA4NS44IDUuNCA0LjZjMy42IDMgOS4yIDUuMiAxNiA2IDUuOC44IDYwLjIgMSAxMjAuNi42IDEwOC40LS42IDExMC4yLS42IDExOS01IDI0LTExLjYgNDAtMjcuNCA1MS42LTUwLjZsNS40LTExIC42LTM0N2MuNC0yMjMtLjItMzUzLjQtMS40LTM2NS0yLTE3LTIuNi0xOC42LTEzLTM0LTEwLjYtMTUuNC0yMi44LTI2LjItNDMuMi0zNy4yLTQuMi0yLjQtNjQuNi0yLjgtMzY2LTMuMi0xOTguNiAwLTM2NCAuNC0zNjcuNiAxLjR6Ii8+PC9zdmc+);
+    }
+    
+    
+    
+    
+    .footer-sns-bilibili {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguOCA3Ny44Yy03LjggMi0zMiAxNy44LTM4LjggMjUuNi05LjYgMTAuNi0xOC40IDI1LTIxLjIgMzQtNC4yIDE0LjItNC4yIDcyMy42IDAgNzMzLjYgOC40IDIwLjIgMjkuNCA0MS42IDUzLjIgNTQuMiA2LjggMy42IDE4LjggMy44IDM3MCAzLjhoMzYzbDktNC4yYzE0LTYuOCAzMS42LTIyLjQgNDIuNi0zOCA5LjQtMTMuOCAxMC0xNS4yIDExLjYtMzIuNiAxLjItMTAuNCAxLjYtMTY2LjggMS40LTM2NS42LS42LTMxNy44LS44LTM0OC4yLTMuOC0zNTQuNi05LjItMTkuMi0yMC44LTMzLTM4LjYtNDVsLTE3LjYtMTItMzYyLjQtLjRjLTE5OS4yIDAtMzY1IC40LTM2OC40IDEuMnpNMzcxLjIgMjUxYzQuMiAxLjYgMjIuNiAxOC4yIDQ0LjYgMzkuOCAyOS44IDI5LjIgMzkgMzcuMiA0NS40IDM5IDEwLjYgMyA3My4yIDIuOCA4My4yLS4yIDYtMS44IDE1LjgtMTAuNCA0My40LTM3LjggMTkuOC0xOS42IDM5LjQtMzcuNCA0NC0zOS42IDE1LjItNy44IDMxLjYtNCA0MSA5LjQgMTAuNCAxNS4yIDguOCAyOC02IDQ0LjYtMTUgMTYuOC0xMSAyNC40IDE0LjIgMjYuOCAxOC44IDEuNiAyNS4yIDMuOCA0My44IDE0LjggMTkuMiAxMS4yIDI4IDIxIDQwLjYgNDQuOEw3NzUgNDExdjI1MGwtOS44IDE5LjZjLTEwLjQgMjAuNi0yMy44IDM1LjYtNDMgNDcuNi0xOC44IDEyLTE4LjYgMTItMjI2LjIgMTEuNGwtMTg5LS42LTExLjgtNC44Yy02LjQtMi42LTE4LjYtMTAuMi0yNi44LTE3LTE2LTEyLjgtMjUuNi0yNi40LTM1LTQ5LjItNC40LTExLTQuNC0xMS40LTQuNC0xMzIuMlY0MTQuNmwxMC40LTIxYzguNC0xNi44IDEzLTIzLjQgMjIuNi0zMi4yIDE3LjItMTYgMzkuMi0yNi40IDU5LjItMjguNCAyNy4yLTIuNCAzMS4yLTkuMiAxNS44LTI3LjItNS01LjgtOS42LTEzLjQtMTAuMi0xNy4yLTUuMi0yNy40IDE5LjQtNDguMiA0NC40LTM3LjZ6Ii8+PHBhdGggZD0iTTMzMC4yIDQwMC40Yy05IDEuNi0xNSA1LjQtMjMgMTUtMTEuNCAxMy40LTExLjIgMTItMTEuMiAxMjAuNnMtLjIgMTA1LjYgMTEuMiAxMjIuNEMzMTggNjczLjggMzA3IDY3MyA0OTIgNjczLjZjOTAuOC40IDE3MC42IDAgMTc3LjQtLjYgMTUuNi0xLjYgMjMuNi02LjggMzIuMi0yMWw2LjQtMTAuOFY1MzcuOGMwLTY4LS44LTEwNS40LTIuMi0xMDkuMi0zLTgtMTUuMi0yMi4yLTIyLjItMjUuOC01LjItMi42LTI2LjYtMy4yLTE3NS42LTMuNC05My40LS4yLTE3My40LjItMTc3LjggMXptNzguNCA3MC40YzkuNiA0IDIyLjggMTcuOCAyNS4yIDI2LjYgMi44IDkuOCAyLjggMzMuNCAwIDQzLjItMi40IDguNi0xMS44IDIwLjItMjAgMjQuNi04IDQtMjMuNiAzLjYtMzEtMS0zLjYtMi4yLTguNC04LTExLTEzLjYtNC4yLTguNC00LjgtMTIuNC00LjgtMzEuOCAwLTIxIC4yLTIyLjYgNi0zMS44IDQtNi40IDktMTEuMiAxNC44LTE0LjQgMTAuMi01LjQgMTIuMi01LjYgMjAuOC0xLjh6bTIwNiAwYzIwIDguMiAyOS4yIDM2LjQgMjIuMiA2Ny40LTIuOCAxMi00LjggMTYuMi0xMC44IDIyLjItNyA3LTguNCA3LjYtMTguOCA3LjYtMTkgMC0zMC42LTkuMi0zNi40LTI5LjItMy42LTEyLjQtMi40LTM3LjggMi4yLTQ2LjggNS05LjYgMjQtMjQgMzEuNi0yNCAyIDAgNi40IDEuMiAxMCAyLjh6Ii8+PC9zdmc+);
+    }
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.proxy.ustclug.org/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用Java打造自己的后端程序"><span class="post-toc-number">1.</span> <span class="post-toc-text">用Java打造自己的后端程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后端和前端的传纸条"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">后端和前端的传纸条</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTTP协议的解析"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">HTTP协议的解析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写后端用Socket编程？没错！"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">写后端用Socket编程？没错！</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用前端传过来的报文“搞事情”"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">用前端传过来的报文“搞事情”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后端的“偷梁换柱”"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">后端的“偷梁换柱”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#「扩展」反射式提供别人开发插件的API"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">「扩展」反射式提供别人开发插件的API</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                项目-SNP-用Java打造自己的后端
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>DedSec</strong>
+        <span>2月 08, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/02/08/snp/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/教程/">教程</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/项目/">项目</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=项目-SNP-用Java打造自己的后端&url=http://yoursite.com/2018/02/08/snp/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=项目-SNP-用Java打造自己的后端&url=http://yoursite.com/2018/02/08/snp/index.html&via=DedSec" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/08/snp/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/08/snp/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=White Hole&title=项目-SNP-用Java打造自己的后端&summary=&pics=http://yoursite.comhttp://dedsec.club/forhexo/img/favicon.png&url=http://yoursite.com/2018/02/08/snp/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="用Java打造自己的后端程序"><a href="#用Java打造自己的后端程序" class="headerlink" title="用Java打造自己的后端程序"></a>用Java打造自己的后端程序</h1><p>现在web编程风气年高，甚至和桌面程序达到了平起平坐的地位，由于其在浏览器中运行，只需要占用少量存储空间且又轻松跨平台，大有取代传统桌面程序的趋势。那么有编程经验的同学看到标题，就要问了，现在主流的后端程序，PHP，JSP都很好用，又何必一遍又一遍的造这个轮子呢？我们学习别人的东西固然重要，能够熟练运用更是值得称赞，然而如果我们想要用的精妙，达到更高层的境界，自然需要对它进行深刻的剖析的理解，这时候通过重造轮子的方法来学习就可以看到一些平常看不到的细节。</p>
+<p>那首先我们就需要了解一些基础的知识。</p>
+<ol>
+<li><h2 id="后端和前端的传纸条"><a href="#后端和前端的传纸条" class="headerlink" title="后端和前端的传纸条"></a><font color="red">后端</font>和<font color="blue">前端</font>的传纸条</h2> 做过全栈的同学肯定知道，前后端交互其实就是两步，第一，写好纸条，就是<code>做好Form表单</code>；第二就是瞄准你要扔的地方（然后趁老师不注意扔过去，咳咳跑题了），就是<code>get/post的url链接</code>。将做好的Form表单通过get/post提交到url链接上，后端就可以通过这个链接收到Form中的信息。</li>
+<li><h2 id="HTTP协议的解析"><a href="#HTTP协议的解析" class="headerlink" title="HTTP协议的解析"></a><font color="green">HTTP协议</font>的解析</h2> 服务器和浏览器既然要互相传纸条，就一定要使用同一种语言，HTTP协议就是这其中最简单最好学的“语言”。其实就是一种格式了，关于这个格式，在<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers" target="_blank" rel="noopener">MDN</a>和RFC文档中有详细的定义。简单来讲就是<code>第一行是「请求方法」「空格」「使用的协议/版本号」，接下来都是以冒号分割的键值对形式</code>，如下是我用Java代码获取的Safari请求的请求头（后面会讲到怎么写）<pre><code> GET / HTTP/1.1
+ Host: 127.0.0.1:9000
+ Upgrade-Insecure-Requests: 1
+ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/604.5.6 (KHTML, like Gecko) Version/11.0.3 Safari/604.5.6
+ Accept-Language: zh-cn
+ Accept-Encoding: gzip, deflate
+ Connection: keep-alive
+</code></pre></li>
+<li><h2 id="写后端用Socket编程？没错！"><a href="#写后端用Socket编程？没错！" class="headerlink" title="写后端用Socket编程？没错！"></a>写<font color="red">后端</font>用<font color="#2faaaa">Socket</font>编程？没错！</h2><p> 其实在我没有做这个东西之前，我一直认为web后端使用很神奇的东西写的，但其实后端就是实现了服务器和浏览器之间的socket通信的程序，但因为HTTP协议是面向无链接的，默认的socket程序如果不手动close的话就会一直保持链接，在浏览器的一边呈现的就是一直在转圈圈读载入条。</p>
+<p> 多说无益，我们现在就写一个hello world。先写一个简短的程序来获取到浏览器的请求头，局部部分如下</p>
+<pre class=" language-java"><code class="language-java"> <span class="token keyword">while</span> <span class="token punctuation">(</span>online<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">try</span> <span class="token punctuation">{</span>
+             server <span class="token operator">=</span> socket<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             outLP<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"已链接: "</span> <span class="token operator">+</span> server<span class="token punctuation">.</span><span class="token function">getRemoteSocketAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             inRemote <span class="token operator">=</span> server<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             outRemote <span class="token operator">=</span> server<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             PrintWriter outRP <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PrintWriter</span><span class="token punctuation">(</span>outRemote<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             Scanner inRS <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>inRemote<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">while</span> <span class="token punctuation">(</span>inRS<span class="token punctuation">.</span><span class="token function">hasNextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 String got <span class="token operator">=</span> inRS<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 <span class="token keyword">if</span> <span class="token punctuation">(</span>got<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+                 outLP<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>got<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+             server<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//由于http是无链接的，所以必须断开socket，表示传输完成</span>
+         <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+</code></pre>
+<p> 变量表</p>
+<pre class=" language-java"><code class="language-java"> <span class="token keyword">int</span> port<span class="token punctuation">;</span>
+ ServerSocket socket<span class="token punctuation">;</span>
+ Socket server<span class="token punctuation">;</span>
+ InputStream inLocal<span class="token punctuation">;</span>
+ OutputStream outLocal<span class="token punctuation">;</span>
+ InputStream inRemote<span class="token punctuation">;</span>
+ OutputStream outRemote<span class="token punctuation">;</span>
+ <span class="token keyword">boolean</span> online<span class="token punctuation">;</span>
+</code></pre>
+<p> 文件下载</p>
+<ul>
+<li><p><a href="https://res.dedsec.club/HelloWorld.java" target="_blank" rel="noopener">HelloWorld.java</a></p>
+<p>动手试试，你就会发现，哎？不对啊？浏览器怎么一次发这么多请求啊？我在测试的时候，点一次链接，Safari请求了3次，FireFox请求了10次，这是因为如果浏览器没有接收到任何信息，甚至404都没有的时候，就会认为丢包了，会重复发包确认。所以我们要让浏览器知道我们收到包，必须回应一下，当然回应的格式也应该按照HTTP协议的格式来。在这里新建一个类叫<code>Header</code></p>
+<p>属性表</p>
+<pre class=" language-java"><code class="language-java">String protocol<span class="token punctuation">;</span>
+String protocolVersion<span class="token punctuation">;</span>
+<span class="token keyword">int</span> status_number<span class="token punctuation">;</span>
+String status<span class="token punctuation">;</span>
+String Date<span class="token punctuation">;</span>
+String ContentType<span class="token punctuation">;</span>
+String charset<span class="token punctuation">;</span>
+</code></pre>
+<p>当然这上面的属性是一般服务器响应头不可或缺的部分，你也可以添加一些自己的东西“搞事”</p>
+<p>为了方便我重写toString将header转化成标准HTTP格式</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> protocol <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> protocolVersion <span class="token operator">+</span> <span class="token string">' '</span>
+          <span class="token operator">+</span> status_number <span class="token operator">+</span> <span class="token string">' '</span>
+          <span class="token operator">+</span> status <span class="token operator">+</span> <span class="token string">'\n'</span> <span class="token operator">+</span>
+          <span class="token string">"Date: "</span> <span class="token operator">+</span> Date <span class="token operator">+</span> <span class="token string">'\n'</span> <span class="token operator">+</span>
+          <span class="token string">"Content-Type: "</span> <span class="token operator">+</span> ContentType <span class="token operator">+</span> <span class="token string">';'</span> <span class="token operator">+</span>
+          <span class="token string">"charset="</span><span class="token operator">+</span>charset <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>然后在接收浏览器信息之后把我们的信息发出去，注意先发头再发内容。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span>inRS<span class="token punctuation">.</span><span class="token function">hasNextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  String got <span class="token operator">=</span> inRS<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>got<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+  outLP<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>got<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+outRP<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Header</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+outRP<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+server<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>试着访问下<br><img src="https://res.dedsec.club/snp/HelloWorld2.png" alt="HelloWorld2_1"><br><img src="https://res.dedsec.club/snp/HelloWorld2_2.png" alt="HelloWorld2_2"></p>
+<p>文件下载</p>
+</li>
+<li><a href="https://res.dedsec.club/HelloWorld_2.java" target="_blank" rel="noopener">HelloWorld_2.java</a></li>
+</ul>
+</li>
+<li><h2 id="用前端传过来的报文“搞事情”"><a href="#用前端传过来的报文“搞事情”" class="headerlink" title="用前端传过来的报文“搞事情”"></a>用<font color="blue">前端</font>传过来的报文“搞事情”</h2><p> 看到这里呢，有灵性的同学们就已经懂了这中间到底是怎么回事了，接下来就很简单了，我们对从浏览器里接受的报文做一个处理，方便我们在后面使用它，为了以后方便，我们新建一个叫Request的类，属性表如下</p>
+<pre class=" language-java"><code class="language-java"> Scanner raw<span class="token punctuation">;</span>
+ InputStream inputStream<span class="token punctuation">;</span>
+ String method<span class="token punctuation">;</span>
+ String url<span class="token punctuation">;</span>
+ HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> param_GET<span class="token punctuation">;</span>
+ HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> param_POST<span class="token punctuation">;</span>
+ String protocol<span class="token punctuation">;</span>
+ String protocolVersion<span class="token punctuation">;</span>
+ HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> header <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p> 我们一边接受浏览器传来的报文，一遍进行分类存储，这里呢我选择使用HashMap的形式将原本header中的键值对存储下来（开发版本还未考虑优化）</p>
+<p> 在这个类的构造器中就一次性的将所有信息归类，注意对Post和multipart/form-data请求的特殊处理，在传输文件时尽量使用二进制形式，这样面对上传等一些特殊要求就不会出现问题。</p>
+</li>
+<li><h2 id="后端的“偷梁换柱”"><a href="#后端的“偷梁换柱”" class="headerlink" title="后端的“偷梁换柱”"></a><font color="red">后端</font>的“偷梁换柱”</h2><p> 到目前为止，我们完成了静态网页的提供，但是，一门后端语言之所以被称谓后端语言就是因为它可以提供动态改变网页内容的能力，所以我们新建一个叫Response的类，提供在返回html文档的时候的改变其内容的能力。</p>
+<p> 我在这里，关于如何控制网页该如何改变，使用什么形式的指令，我想了很久，现在 比较火的PHP，JSP都是标签化了，我当然也可以做成这样，但是，我在使用PHP的时候对其随意的代码风格十分讨厌，而JSP又显得冗长。后端语言中我最喜欢的就是node，因为它小巧快捷，透明，跨平台，直接使用js作为后端语言又减少了学习成本，想想，它唯一的缺点可能就是只有异步这一种编程方式了吧，真的是成也异步，败也异步。由此，我就想做一款同步模型的Node。</p>
+<p> 我挑选了json这一文件格式作为源码文件格式，整个文件分成几个部分，由几个固定关键字区分：scope——变量表，script——脚本逻辑处理，return——返回格式调整。（这其中也借鉴了一些Angular）可以看出这样做，虽然对于大片大片的网页处理能力变差，却在ajax异步处理能力上大幅上升。给后端的定位就是，只提供数据，组织数据格式，剩下全部抛给前端，利用浏览器解析js的强大能力实现整个网站的渲染和呈现。这样做好处众多，一来减轻了服务器的压力，二来通过更赞成异步来构建网页，展现的网页将更流畅，体验更好，三来由于交互的数据量不再是大量的整个网页，速度和流量上都有无可比拟的优势。</p>
+<p> 在解析脚本的地方，目前的处理方法是，将一个语句归为3个部分，变量+操作符+表达式（这样的结构很死，这也是我目前最不满意的地方，希望以后知识增加之后，可以改成python或者js的方式），处理完表达式之后，再识别操作符操作变量。</p>
+</li>
+<li><h2 id="「扩展」反射式提供别人开发插件的API"><a href="#「扩展」反射式提供别人开发插件的API" class="headerlink" title="「扩展」反射式提供别人开发插件的API"></a>「<font color="#ff0ff0">扩展</font>」反射式提供别人开发插件的API</h2><p> 这个几乎是现代所有有前途的软件的通用做法， 提供一套api，这样可以大幅度提升软件的生命周期，可以有大量的新鲜血液注入。</p>
+<p> 目前是利用java强大的反射，实现对Java函数中的最多3参函数支持，返回值规定为String</p>
+</li>
+</ol>
+<p>由于后面的几个部分涉及到的内容较多，基础原理也已讲明，故没有提供详细教程，对后续还不清楚的同学可以看这里的<a href="https://github.com/dongmingchao/SNP" target="_blank" rel="noopener">Github源码</a></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/02/19/xxe/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/12/02/python/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="DedSec's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        DedSec
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="关于我">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">person</i>
+                        
+                        关于我
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/JavaFX教程/">JavaFX教程<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Python/">Python<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/漏洞/">漏洞<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/速查/">速查<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">book</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">schedule</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/dongmingchao/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/7844274" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>White Hole
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("js/smoothscroll.js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==")</script>
+    
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
