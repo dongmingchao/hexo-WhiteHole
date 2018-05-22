@@ -88,13 +88,9 @@ theme: material
 # verbose: true
 
 deploy:
-  type: sftp
-  host: dedsec.club
-  user: 
-  pass: 
-  remotePath: /home/ftp/hexo
-  port:
-  ignore: [.DS_Store]
+  type: git
+  repo: https://github.com/dongmingchao/Blog.git
+  branch: master
 
 seach: 
   path: search.xml
