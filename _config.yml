@@ -89,7 +89,7 @@ theme: material
 
 deploy:
   type: git
-  repo: https://github.com/dongmingchao/Blog.git
+  repo: git@github.com:dongmingchao/Blog.git
   branch: master
 
 seach: 

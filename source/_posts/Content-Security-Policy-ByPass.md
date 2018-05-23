@@ -27,7 +27,7 @@ Content-Security-Policy: default-src 'self' trustedscripts.foo.com
 `'self'`
     代表和文档同源，包括相同的 URL 协议和端口号。两侧单引号是必须的。
 `'unsafe-inline'`
-    允许使用内联资源，如内联的\<script> 元素、javascript: URL、内联的事件处理函数和内联的 \<style> 元素。两侧单引号是必须的。
+    允许使用内联资源，如内联的`<script>` 元素、javascript: URL、内联的事件处理函数和内联的 `<style>` 元素。两侧单引号是必须的。
 `'unsafe-eval'`
     允许使用 eval() 等通过字符串创建代码的方法。两侧单引号是必须的。 
 `data:`
@@ -43,12 +43,12 @@ Content-Security-Policy: default-src 'self'; img-src 'self' data:; media-src med
 | 指令          | 作用                                                         |
 | ------------- | ------------------------------------------------------------ |
 | `default-src` | default-src 指令定义了那些没有被更精确指令指定的（默认）安全策略。该指令包含了以下指令：`child-src`  `connect-src`  `font-src`  `img-src`  `media-src`  `object-src`  `script-src`  `style-src` |
-| `child-src`   | child-src 指定定义了 web workers 以及嵌套的浏览上下文（\<frame> 和 \<iframe> ）的源。推荐使用该指令，而不是被废弃的 frame-src 指令。对于 web workers，不符合要求的请求会被当做致命网络错误。 |
+| `child-src`   | child-src 指定定义了 web workers 以及嵌套的浏览上下文（`<frame>` 和 `<iframe>` ）的源。推荐使用该指令，而不是被废弃的 frame-src 指令。对于 web workers，不符合要求的请求会被当做致命网络错误。 |
 | `connect-src` | connect-src 指令定义了请求、XMLHttpRequest、WebSocket 和 EventSource 的连接来源。在火狐23版本之前，使用xhr-src限制XMLHttpRequest的使用 |
 | `font-src`    | font-src 指令定义了通过 @font-face加载字体的有效源。         |
 | `img-src`     | img-src 定义图片和图标的有效源                               |
-| `media-src`   | media-src 定义\<audio> 和 \<video> 标签的有效源.             |
-| `object-src`  | object-src 定义\<object>, \<embed>, 和 \<applet> 的有效源.   |
+| `media-src`   | media-src 定义`<audio>` 和 `<video>` 标签的有效源.             |
+| `object-src`  | object-src 定义`<object>`, `<embed>`, 和 `<applet>` 的有效源.   |
 | `script-src`  | script-src 规定js的合法源，无论'unsafe-inline' 和 'unsafe-eval'出现在default-src或者script-src，都会使inline script和eval()被禁用 |
 | `style-src`   | 规定样式表的合法源，包括额外加载的和行内的和style标签的，不在允许列表的样式表将不会被请求和加载，无论是在`default-src`或是`style-src`注明`'unsafe-inline'`都会使行内使用被禁用 |
 
