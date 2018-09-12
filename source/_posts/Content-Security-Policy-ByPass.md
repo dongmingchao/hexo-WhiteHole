@@ -11,8 +11,10 @@ thumbnail:
 在网站上[检测CSP设置](https://csp-evaluator.withgoogle.com/)
 
 ## 什么是CSP？
+
 来自[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/CSP/CSP_policy_directives)的解释：
 内容安全策略 (CSP, Content Security Policy) 是一个附加的安全层，用于帮助检测和缓解某些类型的攻击，包括跨站脚本 (XSS) 和数据注入等攻击。 这些攻击可用于实现从数据窃取到网站破坏或作为恶意软件分发版本等用途。
+
 ## 简单来说
 CSP即是：通过在http(s)报文头添加`Content-Security-Policy`字段，规定此html文档其中不同类型的资源的来源，比如如下这个例子
 
@@ -58,11 +60,11 @@ Content-Security-Policy: default-src 'self'; img-src 'self' data:; media-src med
 default-src source-list
 ```
 
-Note: Firefox currently requires using the same URL scheme and port for the report-uri as the content being protected by Content Security Policy.
+注意：Firefox目前要求使用与`report-uri`相同的URL方案和端口作为受内容安全策略保护的内容。
 
-#### 不包括在`default-src`中的指令
+### 不包括在`default-src`中的指令
 
-`base-uri`
+#### `base-uri`
 
 `base-uri` 指令定义了 URI，它可以作为文档的基准 URL。如果没有指定值，那么任何 URI 都被允许。如果没有指定这条指令，浏览器会使用 `base` 元素中的 URL。 
 
@@ -73,26 +75,30 @@ Note: Firefox currently requires using the same URL scheme and port for the repo
 <base target="_blank" href="http://www.example.com/page.html">
 ```
 
-`plugin-types`
+#### `plugin-types`
 
-The `plugin-types` directive specifies the valid plugins that the user agent may invoke.
+`plugin-types`指令指定通过`<object>`或`<embed>`可以调用的有效MIME。
 
-`referrer`
+#### `referrer`
 
-The `referrer` directive specifies information in the referrer header for links away from a page.
+ `referrer` 指明离开的上一个页面的url
 
-`reflected-xss`
+#### `report-uri`
 
-The `reflected-xss` directive instructs a user agent to  activate or deactivate any heuristics used to filter or block reflected  cross-site scripting attacks. Valid values are `allow`, `block`, and `filter`. This directive is not supported in the  element.
+The `report-uri` 指令指明检测到XSS攻击后报告给的服务器地址，会向服务器返回一个json格式的报文
 
-**Note:** This directive is ignored if it is contained in a `meta` element.
-
-`report-uri`
-
-The `report-uri` directive instructs the user agent to  report attempts to violate the Content Security Policy. These violation  reports consist of [JSON](https://developer.mozilla.org/en/JSON) documents sent via an HTTP `POST` request to the specified URI. See [Using CSP violation reports](https://developer.mozilla.org/en/Security/CSP/Using_CSP_violation_reports) for details. This directive is not supported in the  element.
-
-`sandbox`
-
-The sandbox directive applies restrictions to a page's actions  including preventing popups, preventing the execution of plugins and  scripts, and enforcing a same-origin policy. This directive is not supported in the  element or by the `Content-Security-policy-Report-Only` header field.
+```json
+{
+  "csp-report": {
+    "document-uri": "http://example.org/page.html",
+    "referrer": "http://evil.example.com/",
+    "blocked-uri": "http://evil.example.com/evil.js",
+    "violated-directive": "script-src 'self' https://apis.google.com",
+    "original-policy": "script-src 'self' https://apis.google.com; report-uri http://example.org/my_amazing_csp_report_parser"
+  }
+}
+```
 
 来自：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/CSP/CSP_policy_directives)
+
+推荐阅读：[Content Security Policy 入门教程](http://www.ruanyifeng.com/blog/2016/09/csp.html)

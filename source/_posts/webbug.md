@@ -54,3 +54,20 @@ thumbnail:
     文件后缀.filename.swp .bak之类
 
     Git遗留
+
+1. ### PHP文件包含
+
+    如果猜测代码有include函数存在，且可以`include(any.php)`，则可以绕过php的解析读取到源码，最通常的一种做法就是使用php://filter
+    例如：
+
+    ```php
+    php://filter/read=convert.base64-encode/resource=exp.php
+    ```
+
+    或者使用
+    1. `data://`
+    2. `php://input`
+    3. 00截断
+    4. ./构造长目录截断，win下>256字节，linux下>4096字节，<font color=darkred>要求php版本小于5.2.8</font>
+
+    详细参见[这里](https://zhuanlan.zhihu.com/p/26308699)
