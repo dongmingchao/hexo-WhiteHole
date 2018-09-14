@@ -55,7 +55,7 @@ thumbnail:
 
     Git遗留
 
-1. ### PHP文件包含
+7. ### PHP文件包含
 
     如果猜测代码有include函数存在，且可以`include(any.php)`，则可以绕过php的解析读取到源码，最通常的一种做法就是使用php://filter
     例如：
@@ -71,3 +71,28 @@ thumbnail:
     4. ./构造长目录截断，win下>256字节，linux下>4096字节，<font color=darkred>要求php版本小于5.2.8</font>
 
     详细参见[这里](https://zhuanlan.zhihu.com/p/26308699)
+
+8. ### PHP parse_url()
+
+    <font color=red>以下环境未复现成功</font>
+
+    ```php
+    <?php
+    ini_set("display_errors",0);
+    $uri = $_SERVER['REQUEST_URI'];
+    var_dump('uri='.$uri);
+    if(stripos($uri,".")){// .作为开头可破
+        die("Unkonw URI");
+    }
+    var_dump('parse_url($uri,PHP_URL_HOST)='.parse_url($uri,PHP_URL_HOST));
+    if(!parse_url($uri,PHP_URL_HOST)){
+        $uri = "http://".$_SERVER['REMOTE_ADDR'].$_SERVER['REQUEST_URI'];
+    }
+    $host = parse_url($uri,PHP_URL_HOST);
+    var_dump('host='.$host);
+    if($host === "c7f.zhuque.com"){
+        echo("AuthFlag"."flag{you got flag}");
+    }
+    ```
+
+    绕过payload：`.@c7f.zhuque.com/..//`
