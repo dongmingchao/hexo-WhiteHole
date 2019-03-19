@@ -1,5 +1,3 @@
----
-title: tags
-date:
-layout: tags
+title: "Tags"
+layout: "tags"
 ---
